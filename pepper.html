@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>חטיף פלפל פריך - בקרוב!</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+      background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #222;
+    }
+    .container {
+      background: rgba(255,255,255,0.95);
+      border-radius: 24px;
+      padding: 48px 40px;
+      max-width: 520px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+    .emoji-hero { font-size: 72px; margin-bottom: 16px; }
+    h1 { font-size: 32px; color: #cc2200; margin-bottom: 12px; line-height: 1.3; }
+    .subtitle { font-size: 20px; color: #555; margin-bottom: 28px; line-height: 1.5; }
+    .highlight {
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      color: white; padding: 16px 32px; border-radius: 50px;
+      font-size: 22px; font-weight: bold; display: inline-block;
+      margin-bottom: 28px; box-shadow: 0 4px 15px rgba(255,75,43,0.4);
+    }
+    .features { display: flex; justify-content: center; gap: 24px; margin-bottom: 28px; flex-wrap: wrap; }
+    .feature { font-size: 16px; color: #444; }
+    .feature span { font-size: 28px; display: block; margin-bottom: 4px; }
+    .cta {
+      background: #ff6b35; color: white; border: none;
+      padding: 16px 40px; font-size: 20px; font-weight: bold;
+      border-radius: 50px; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(255,107,53,0.4);
+    }
+    .cta:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255,107,53,0.5); }
+    .footer { margin-top: 24px; font-size: 14px; color: #888; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="emoji-hero">🌶️🔥</div>
+    <h1>חטיף פלפל פריך חדש!</h1>
+    <p class="subtitle">חטיף פלפל אמיתי, פריך וממכר — טעם שלא תשכחו</p>
+    <div class="highlight">🌶️ חריף • טרי • ממכר</div>
+    <div class="features">
+      <div class="feature"><span>🫑</span>מפלפל אמיתי</div>
+      <div class="feature"><span>❤️‍🔥</span>טעם עשיר</div>
+      <div class="feature"><span>😋</span>פריך וטעים</div>
+    </div>
+    <button class="cta" onclick="alert('תודה! נעדכן אותך כשהמוצר יושק')">רוצה לשמוע כשיוצא!</button>
+    <p class="footer">בקרוב על המדפים</p>
+  </div>
+</body>
+</html>
