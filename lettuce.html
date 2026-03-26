@@ -36,14 +36,22 @@
     .features { display: flex; justify-content: center; gap: 24px; margin-bottom: 28px; flex-wrap: wrap; }
     .feature { font-size: 16px; color: #444; }
     .feature span { font-size: 28px; display: block; margin-bottom: 4px; }
+    .email-form { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+    .email-form input {
+      padding: 14px 20px; font-size: 16px; border: 2px solid #a8e063;
+      border-radius: 50px; width: 240px; text-align: center; outline: none;
+      direction: ltr;
+    }
+    .email-form input:focus { border-color: #56ab2f; box-shadow: 0 0 10px rgba(86,171,47,0.3); }
     .cta {
       background: #ff6b35; color: white; border: none;
-      padding: 16px 40px; font-size: 20px; font-weight: bold;
+      padding: 14px 32px; font-size: 18px; font-weight: bold;
       border-radius: 50px; cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 4px 15px rgba(255,107,53,0.4);
     }
     .cta:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255,107,53,0.5); }
+    .success { color: #2d7a2d; font-weight: bold; display: none; margin-top: 12px; font-size: 18px; }
     .footer { margin-top: 24px; font-size: 14px; color: #888; }
   </style>
 </head>
@@ -58,8 +66,26 @@
       <div class="feature"><span>💚</span>100% טבעי</div>
       <div class="feature"><span>😋</span>פריך וטעים</div>
     </div>
-    <button class="cta" onclick="alert('תודה! נעדכן אותך כשהמוצר יושק')">רוצה לשמוע כשיוצא!</button>
+    <div class="email-form" id="emailForm">
+      <input type="email" id="emailInput" placeholder="your@email.com" required>
+      <button class="cta" onclick="submitEmail()">רוצה לשמוע כשיוצא!</button>
+    </div>
+    <p class="success" id="successMsg">תודה! נעדכן אותך כשהמוצר יושק 🎉</p>
     <p class="footer">בקרוב על המדפים</p>
   </div>
+  <script>
+    function submitEmail() {
+      var email = document.getElementById('emailInput').value;
+      if (email && email.includes('@')) {
+        var emails = JSON.parse(localStorage.getItem('lettuce_emails') || '[]');
+        emails.push({email: email, time: new Date().toISOString()});
+        localStorage.setItem('lettuce_emails', JSON.stringify(emails));
+        document.getElementById('emailForm').style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+      } else {
+        alert('נא להזין כתובת אימייל תקינה');
+      }
+    }
+  </script>
 </body>
 </html>
